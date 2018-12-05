@@ -26,18 +26,18 @@ def timeit(nu):
 
 #Define pixel size.
 nside = 64 #Will give 
-nmaps = 100000
-istart = 0
-npix = 64 #Flat-sky map will have npix**2 pixels.
+istart = 850
+istop = 50000
+npix = 128 #Flat-sky map will have npix**2 pixels.
 map_size = [25.,25.]
 sense_P = 70.0
-outdir = '/home/jason/codes/data/deep_foregrounds'
+outdir = '/media/jason/SSD2/deep_data/deep_foregrounds'
 seed = 1111
 
 #Define effective frequencies for output maps (in GHz).
 #CMB-S4 definitions
-#nu = np.array([20., 30., 40., 85., 95., 145., 155., 220., 270.])
-nu = np.array([20., 40., 145., 220., 270.])
+nu = np.array([20., 30., 40., 85., 95., 145., 155., 220., 270.])
+#nu = np.array([20., 40., 145., 220., 270.])
 #nu = np.array([20., 155., 270.])
 
 ############################################################################
@@ -82,7 +82,7 @@ def sky_instance(sky_config):
     return pysm.Sky(sky_config)
 
 
-for i in range(istart,nmaps):
+for i in range(istart,istop):
     print('Realization ', i)
 
     if i==0:
